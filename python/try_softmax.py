@@ -1,13 +1,10 @@
 import numpy as np
 import torch
-
+# torch.nn.functional.softmax()
 import hidet
 from hidet.graph.ops.definitions.activation import softmax
-from scipy.special import softmax as softmax_scipy
-import timeit
-import time
 import torch.nn as nn
-shape = [4, 1000]
+shape = [50, 10000]
 a = hidet.randn(shape, device="cpu")
 # a = hidet.randn([2, 8, 8], device="cpu")
 print(a)

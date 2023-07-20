@@ -74,6 +74,7 @@ class SoftmaxTask(Task):
         if not all(is_constant(dim) for dim in self.inputs[0].shape) or (self.axis != len(self.x_shape) - 1 and
                                                                          self.axis != -2):  # not row-major, avx no good
             return NotImplemented  # use auto-scheduler
+        # return NotImplemented
         return self.schedule_softmax_cpu()
         # return tune.extract_ir_modules(self.schedule_softmax_cpu)
 
